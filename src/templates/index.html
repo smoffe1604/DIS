@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7GZ5PH7EH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Z7GZ5PH7EH');
+    </script>
+    
+    <title>Create Table</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div class="content">
+        <div class="leftdiv">
+            <h1>Table Options</h1>
+
+            <form action="/delete_table" method="post">
+                <button type="submit">Drop all tables</button>
+            </form>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div>{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            {% if not table_exist %}
+            <form action="/process_table" method="post">
+                <button type="submit">Create Table</button>
+            </form>
+            {% endif %}
+
+            {% if table_exist %}
+            <form action="/show_table" method="get">
+                <button type="submit">Show Dataset</button>
+            </form>
+            
+
+            <div style="margin-top: 50px;">
+                <h2>Input Mushroom Information</h1>
+                <form action="/submit_text" method="post">
+                    <label for="inputText1">Cap Diameter:</label> <br>
+                    <input type="text" name="cap_d" required> <br>
+                    <label for="inputText2">Cap Shape</label> <br>
+                    <input type="text" name="cap_shape" required> <br>
+                    <label for="inputText3">Cap Surface</label> <br>
+                    <input type="text" name="cap_surf" required> <br>
+                    <label for="inputText4">Cap Color</label> <br>
+                    <input type="text" name="cap_color" required> <br>
+                    <label for="inputText5">Stem Height</label> <br>
+                    <input type="text" name="stem_h" required> <br>
+                    <label for="inputText6">Stem Width</label> <br>
+                    <input type="text" name="stem_w" required> <br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="rightdiv">
+            
+        </div>
+        <div class="spinning-image-container">
+            <img src="../static/mushroom-png-transparent-0.png" alt="Spinning Image" class="spinning-image">
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
+
+
+
