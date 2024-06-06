@@ -14,3 +14,4 @@ The Regex part is for the input form to make it less lenient. Where you can inpu
 - oRaNge
 - 17
 - 17
+and you should see two rows left after the filtering
