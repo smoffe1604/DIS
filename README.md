@@ -8,6 +8,9 @@ The application is also running on a server right now which you can view by goin
 
 The database operations like insert and delete is handled as buttons when the server is running. 
 The Regex part is for the input form to make it less lenient. Where you can input the following data:
-- 15.26
+- 15.2
 - Convex
-- 
+- grooves
+- oRaNge
+- 17
+- 17
